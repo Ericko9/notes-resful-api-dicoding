@@ -1,0 +1,423 @@
+body {
+    font-family: 'Georgia', sans-serif;
+    margin: 0;
+    padding: 10px; /* Mengurangi padding agar lebih compact */
+    background-color: rgb(244, 237, 204);
+}
+
+h1 {
+    text-align: center;
+    color: #007bff; /* Mengubah warna teks menjadi biru */
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px; /* Mengurangi jarak antar elemen */
+}
+
+.created-at-button,
+.archive-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 8px; /* Mengubah padding tombol */
+    cursor: pointer;
+}
+
+.archived-icon {
+    margin-left: 8px; /* Mengurangi margin ikon */
+    font-size: 1em; /* Mengubah ukuran ikon */
+}
+
+.delete-button {
+    background-color: #ff5252;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 10px; /* Mengubah padding tombol */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 6px; /* Mengurangi margin kanan */
+}
+
+.delete-button:hover {
+    background-color: #ff0000;
+}
+
+.note-item {
+    border: 1px solid #007bff; /* Mengubah warna border */
+    border-radius: 6px; /* Mengubah radius border */
+    padding: 12px; /* Mengubah padding */
+    overflow: hidden;
+    transition: all 150ms ease-in;
+    box-sizing: border-box;
+    margin-bottom: 12px; /* Mengurangi margin bawah */
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.note-item:hover {
+    transform: scale(1.01); /* Sedikit perbesar saat hover */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); /* Mengubah efek bayangan */
+}
+
+.note-item:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.note-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px; /* Mengurangi margin atas */
+}
+
+.note-list {
+    margin-block: 0.5rem; /* Mengurangi margin */
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 16px; /* Mengurangi jarak antar kolom */
+    row-gap: 24px; /* Mengurangi jarak antar baris */
+}
+
+.note-item h3 {
+    margin-top: 0;
+}
+
+.form-add-note {
+    background-color: #007bff; /* Ubah warna latar belakang */
+    padding: 16px; /* Sesuaikan padding */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.form-add-note input[type='text'],
+.form-add-note textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.form-add-note button {
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.form-add-note button.tombol-setuju {
+    background-color: #007bff;
+}
+
+.form-add-note button.tombol-setuju:hover {
+    background-color: #0056b3;
+}
+
+.form-add-note button.tombol-batal {
+    background-color: #6c757d;
+}
+
+.form-add-note button.tombol-batal:hover {
+    background-color: #5a6268;
+}
+
+.dialog-konfirmasi {
+    background-color: #007bff; /* Ubah warna latar belakang */
+    border-radius: 8px;
+    padding: 16px; /* Sesuaikan padding */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+    margin: auto;
+}
+
+.dialog-konfirmasi .tombol-setuju,
+.dialog-konfirmasi .tombol-batal {
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.dialog-konfirmasi .tombol-setuju {
+    background-color: #007bff;
+}
+
+.dialog-konfirmasi .tombol-setuju:hover {
+    background-color: #0056b3;
+}
+
+.dialog-konfirmasi .tombol-batal {
+    background-color: #6c757d;
+}
+
+.dialog-konfirmasi .tombol-batal:hover {
+    background-color: #5a6268;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-image: linear-gradient(
+        to right,
+        #5f5d9c,
+        #6196a6,
+        #a4ce95,
+        #f4edcc
+    );
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    color: white;
+    z-index: 1000;
+}
+
+.note-item:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.note-item h3 {
+    margin-top: 0;
+}
+
+.form-add-note {
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #007bff; /* Ubah warna latar belakang */
+    margin-top: 90px;
+}
+
+.form-add-note input[type='text'],
+.form-add-note textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.form-add-note button {
+    padding: 10px 20px;
+    background-color: #007bff; /* Ubah warna tombol */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.form-add-note button:hover {
+    background-color: #0056b3; /* Warna hover tombol */
+}
+
+.dialog-konfirmasi {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #007bff; /* Ubah warna latar belakang */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.dialog-konfirmasi p {
+    margin: 0 0 10px;
+}
+
+.tombol-setuju,
+.tombol-batal {
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+}
+
+.tombol-setuju {
+    background-color: #007bff; /* Ubah warna tombol setuju */
+    color: white;
+}
+
+.tombol-setuju:hover {
+    background-color: #0056b3; /* Warna hover tombol setuju */
+}
+
+.tombol-batal {
+    background-color: #6c757d;
+    color: #5f5d9c;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-image: linear-gradient(
+        to right,
+        #5f5d9c,
+        #6196a6,
+        #a4ce95,
+        #f4edcc
+    );
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    color: white;
+    z-index: 1000;
+}
+
+note-list {
+    border: 1px solid #007bff; /* Ubah warna border */
+    border-radius: 8px;
+    padding: 16px;
+    overflow: hidden;
+    transition: all 150ms ease-in;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* Initially, 6 columns */
+    gap: 16px;
+}
+
+.swal2-container {
+    position: fixed; /* Position the modal fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999; /* Set a high z-index value */
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+.login-container {
+    background-color: #007bff; /* Ubah warna latar belakang menjadi biru */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+}
+
+.login-container h2 {
+    margin-top: 0;
+}
+
+.login-form {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #4caf50;
+}
+
+.btn-login {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.btn-login:hover {
+    background-color: #45a049;
+}
+
+.btn-register-container {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-register {
+    background-color: #007bff; /* Ubah warna tombol register menjadi biru */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.btn-register:hover {
+    background-color: #0056b3; /* Warna hover tombol register */
+}
+
+.login-container.shine {
+    animation: shine-animation 2s infinite;
+}
+
+@keyframes shine-animation {
+    0% {
+        background-color: #f4f4f4;
+    }
+    50% {
+        background-color: #e0e0e0;
+    }
+    100% {
+        background-color: #f4f4f4;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    note-list {
+        grid-template-columns: repeat(5, 1fr); /* 6 columns on screens larger than 1200px */
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    note-list {
+        grid-template-columns: repeat(4, 1fr); /* 5 columns on smaller screens */
+    }
+}
+
+@media screen and (max-width: 992px) {
+    note-list {
+        grid-template-columns: repeat(3, 1fr); /* 4 columns on even smaller screens */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    note-list {
+        grid-template-columns: repeat(2, 1fr); /* 3 columns on smaller screens */
+    }
+}
+
+@media screen and (max-width: 576px) {
+    note-list {
+        grid-template-columns: repeat(1, 1fr); /* 2 columns on smallest screens */
+    }
+}
